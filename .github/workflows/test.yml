@@ -1,0 +1,23 @@
+name: Tests
+
+on: [push, pull_request]
+  
+
+jobs:
+  test:
+    timeout-minutes: 5
+    runs-on: ubuntu-latest
+
+    name: Nim ${{ matrix.nim }}
+    steps:
+    - name: Setup Nim Enviroment
+      uses: actions/checkout@master
+    - uses: jiro4989/setup-nim-action@v1
+      with:
+          nim-version: '1.6.2'
+          
+    - name: Update nimble
+      run: nimble update
+
+    - name: Run Tests
+      run: nimble test
