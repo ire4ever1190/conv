@@ -4,7 +4,7 @@ Mainly made because I kept needing to use random websites when converting number
 ### Installation
 
 ```
-nimble install github.com/ire4ever1190/conv
+nimble install https://github.com/ire4ever1190/conv
 ```
 
 

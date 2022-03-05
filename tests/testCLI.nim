@@ -2,7 +2,7 @@ import std/unittest
 import std/osproc
 import std/os
 import std/strutils
-import ../src/conv {.all.}
+import ../src/constants
 
 const 
   rootFolder = currentSourcePath().parentDir.parentDir

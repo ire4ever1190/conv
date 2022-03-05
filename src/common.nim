@@ -20,7 +20,6 @@ type
     
   InvalidFormatError* = object of CatchableError
 
-template chr*(x: NumberFormat): char = x.ord.chr
 
 const supportedFormats* = fullSet(NumberFormat)
 
@@ -69,6 +68,7 @@ proc fromIn*(conf: CmdConf): int {.raises: [InvalidFormatError].}=
   if parsedLength == 0:
     raiseFormatError("Input is not in " & toLowerAscii($conf.inFormat) & " format")
   elif parsedLength != conf.input.len:
+    # Underline the part of the input that is incorrect and present to user
     var msg = "Input is not fully in " & toLowerAscii($conf.inFormat) & " format: "
     let startLength = msg.len + parsedLength
     msg &= conf.input
